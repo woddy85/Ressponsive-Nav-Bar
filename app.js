@@ -20,7 +20,7 @@ const navSlide = () => {
     });
 }
 
-//This is a cleaner wahy to do it
+//This is a cleaner way to do it
 // const app = ()=>{
 //     navSlide();
 //     navSlide();

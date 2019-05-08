@@ -4,12 +4,12 @@
     box-sizing: border-box
 }
 body{  
-    background-image: url('./img/city-landmark.jpg');
+    background-image: url('./img/sukhumvit.jpg.jpg');
     background-repeat: no-repeat; 
     background-size: cover;
     height: 100vh;
-    /*Made bacground img flexible*/
-    background-position: center;    
+    /*Made background img flexible*/
+    background-position: center;   
 }
 
 .img-responsive {
@@ -110,7 +110,7 @@ nav{
     opacity: 0;
 }
 .toggle .line3{
-    transform:  rotate(45deg) translate(-5px,-6px);
+    transform:  rotate(45deg) translate(-6px,-6px);
 }
 
 .img-responsive {

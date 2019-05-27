@@ -79,3 +79,5 @@ body {
 .panel.open {
   font-size: 40px;
 }
+
+#more {display: none;}

@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name= "google-signin-client_id" content= "327588930045-8s8fgk6cs6d646ek4m28ik0fsr59th0g.apps.googleusercontent.com" />
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <title>Navigation</title>
     <link rel="stylesheet" href="style.css">
+    <script src="http://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
@@ -21,6 +23,37 @@
             <li><a href="#">BarsLocation</a></li>
             <li><a href="#">Events</a></li>
         </ul>
+        <div id ="profileinfo"></div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <script>
+            function onSignIn(googleUser){
+                var profile = googleUser.getBasicProfile();
+                document.getElementById ("profileinfo").innerHTML =
+                profile.getName() +
+                "<br>" +
+                "<a href='mailto:'" +
+                profile.getEmail() +
+                "'>" +
+                profile.getEmail() +
+                "</a>" +
+                "<br>" +
+                "<img src='" +
+                profile.getImageUrl() +
+                "'/>";
+            }
+        </script>
+
+        <a href="#" onclick="signOut();">Sign out</a>
+        <script>
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+            console.log('User signed out.');
+            //for å logge ut uten å se bilde kopier fran sign inn og avslutte med en empty string ="";.
+            document.getElementById ("profileinfo").innerHTML ="";
+            });
+        }
+        </script>
 
         <div class="burger">
             <div class="line1"></div>

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name= "google-signin-client_id" content= "327588930045-8s8fgk6cs6d646ek4m28ik0fsr59th0g.apps.googleusercontent.com" />
+    <meta name=
+     "google-signin-client_id" content= "327588930045-8s8fgk6cs6d646ek4m28ik0fsr59th0g.apps.googleusercontent.com" />
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <title>Navigation</title>
     <link rel="stylesheet" href="style.css">
@@ -24,26 +25,29 @@
             <li><a href="#">Events</a></li>
         </ul>
         <div id ="profileinfo"></div>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div a href="https://accounts.google.com/signin/v2/sl/pwd?hl=no&passive=true&continue=https%3A%2F%2Fwww.google.com%2F%3Fhl%3Dnb&flowName=GlifWebSignIn&flowEntry=ServiceLogin" id="logginbutton" class="g-signin2" data-onsuccess="onSignIn"></div>
         <script>
-            function onSignIn(googleUser){
+            function onSignIn(googleUser){   
                 var profile = googleUser.getBasicProfile();
                 document.getElementById ("profileinfo").innerHTML =
                 profile.getName() +
                 "<br>" +
-                "<a href='mailto:'" +
+                "<img src='" +
+                profile.getImageUrl() +
+                "'/>" +
+                "<a class='emaillink' href='mailto:'" +
                 profile.getEmail() +
                 "'>" +
                 profile.getEmail() +
                 "</a>" +
-                "<br>" +
-                "<img src='" +
-                profile.getImageUrl() +
-                "'/>";
+                "<br>"; 
+                document.getElementById("logginbutton").style.display="none";
+                document.getElementById("signOut").style.display="block";
+
             }
         </script>
 
-        <a href="#" onclick="signOut();" class="sign-out">Sign out</a>
+        <a href="#" onclick="signOut();" class="sign-out" id="signOut">Sign out</a>
         <script>
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
@@ -51,6 +55,9 @@
             console.log('User signed out.');
             //for å logge ut uten å se bilde kopier fran sign inn og avslutte med en empty string ="";.
             document.getElementById ("profileinfo").innerHTML ="";
+            //for å skjule sign in når du er sign in eller sign ut.
+            document.getElementById("logginbutton").style.display="block";
+                document.getElementById("signOut").style.display="none";
             });
         }
         </script>

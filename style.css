@@ -136,6 +136,10 @@ nav{
 -ms-transform: scale(0.4, 0.4);
 -webkit-transform: scale(0.4, 0.4);
 position: absolute;
-padding-left: 1100px;
+padding-left: 2100px;
 padding-bottom: 20px;
 }
+.emaillink{
+    color:white;
+}
+
